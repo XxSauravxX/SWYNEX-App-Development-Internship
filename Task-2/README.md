@@ -37,4 +37,4 @@ No React Native, Flutter, or other framework is claimed.
 
 
 ### Game artwork
-Each recommendation now includes game artwork, with a fallback emoji if an external image fails to load.
+Each recommendation includes game artwork, with a fallback emoji if an external image fails to load.
