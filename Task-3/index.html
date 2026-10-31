@@ -1,1 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameMatch — SWYNEX Task 2</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <main id="app" aria-live="polite">
 
+    <!-- 1. WELCOME -->
+    <section class="screen active" id="welcome">
+      <div class="welcome-visual">
+        <div class="glow glow-one"></div><div class="glow glow-two"></div>
+        <div class="mountain m1"></div><div class="mountain m2"></div><div class="mountain m3"></div>
+        <div class="hero-character">⚔</div>
+        <div class="controller">⌁</div>
+      </div>
+      <div class="welcome-content">
+        <div class="logo"><span class="logo-icon">⌁</span>Game<span>Match</span></div>
+        <h1>Find the game that's<br>made for you.</h1>
+        <p>Answer a few questions about<br>your gaming preferences and<br>we'll find your perfect game<br>or genre.</p>
+        <button class="primary-btn" data-go="preferences">Start Finding <span>›</span></button>
+        <button class="secondary-btn" data-go="match">Browse Genres</button>
+        <button class="secondary-btn library-home-btn" data-go="library">🎮 My Games</button>
+      </div>
+    </section>
+
+    <!-- 2. PREFERENCES -->
+    <section class="screen" id="preferences">
+      <header class="step-header">
+        <button class="icon-btn" data-back aria-label="Back">‹</button>
+        <div class="step-meta"><span>Step 1 of 2</span><div class="progress"><i style="width:50%"></i></div></div>
+      </header>
+      <div class="content">
+        <h2>What do you usually<br>play on?</h2>
+        <p class="sub">Select one platform</p>
+
+        <div class="platform-grid">
+          <button class="platform" data-platform="PC"><span class="platform-icon">▣</span><b>PC</b></button>
+          <button class="platform" data-platform="PlayStation"><span class="platform-icon">◈</span><b>PlayStation</b></button>
+          <button class="platform" data-platform="Xbox"><span class="platform-icon">◉</span><b>Xbox</b></button>
+          <button class="platform" data-platform="Mobile"><span class="platform-icon">▯</span><b>Mobile</b></button>
+          <button class="platform" data-platform="Nintendo"><span class="platform-icon">◧</span><b>Nintendo</b></button>
+        </div>
+
+        <h3 class="question-label">How much time do you usually have?</h3>
+        <p class="sub">Choose the session length that fits you best</p>
+        <div class="time-grid">
+          <button class="time-card" data-time="Short"><span>⚡</span><b>Short</b><small>Under 30 min</small></button>
+          <button class="time-card" data-time="Medium"><span>◷</span><b>Medium</b><small>30–90 min</small></button>
+          <button class="time-card" data-time="Long"><span>⌛</span><b>Long</b><small>90+ min</small></button>
+        </div>
+
+        <button class="primary-btn next" id="platformNext">Next <span>›</span></button>
+      </div>
+    </section>
+
+    <!-- 3. PLAYSTYLE -->
+    <section class="screen" id="playstyle">
+      <header class="step-header">
+        <button class="icon-btn" data-back aria-label="Back">‹</button>
+        <div class="step-meta"><span>Step 2 of 2</span><div class="progress"><i style="width:100%"></i></div></div>
+      </header>
+      <div class="content">
+        <h2>What kind of experience<br>are you looking for?</h2>
+        <p class="sub">Select one genre</p>
+
+        <div class="style-grid">
+          <button class="style-card" data-style="Action" style="--card-image:url('https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg')"><span class="art">🎯</span><b>Action</b><em>✓</em></button>
+          <button class="style-card" data-style="Story" style="--card-image:url('https://cdn.akamai.steamstatic.com/steam/apps/292030/header.jpg')"><span class="art">📖</span><b>Story</b><em>✓</em></button>
+          <button class="style-card" data-style="Exploration" style="--card-image:url('https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg')"><span class="art">🗺</span><b>Exploration</b><em>✓</em></button>
+          <button class="style-card" data-style="Strategy" style="--card-image:url('https://cdn.akamai.steamstatic.com/steam/apps/289070/header.jpg')"><span class="art">♟</span><b>Strategy</b><em>✓</em></button>
+          <button class="style-card" data-style="Competitive" style="--card-image:url('https://cdn.akamai.steamstatic.com/steam/apps/730/header.jpg')"><span class="art">🏆</span><b>Competitive</b><em>✓</em></button>
+          <button class="style-card" data-style="Horror" style="--card-image:url('https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg')"><span class="art">☠</span><b>Horror</b><em>✓</em></button>
+          <button class="style-card" data-style="Racing" style="--card-image:url('https://cdn.akamai.steamstatic.com/steam/apps/252950/header.jpg')"><span class="art">🏎</span><b>Racing</b><em>✓</em></button>
+          <button class="style-card" data-style="Relaxing" style="--card-image:url('https://cdn.akamai.steamstatic.com/steam/apps/413150/header.jpg')"><span class="art">🌲</span><b>Relaxing</b><em>✓</em></button>
+        </div>
+
+        <button class="primary-btn next" id="findMatch">Find My Match <span>›</span></button>
+      </div>
+    </section>
+
+    <!-- 4. MATCH -->
+    <section class="screen" id="match">
+      <header class="simple-header">
+        <button class="icon-btn" data-back aria-label="Back">‹</button>
+        <strong>Your Game Match</strong>
+        <button class="icon-btn ghost" data-go="saved" aria-label="Saved games">♡</button>
+      </header>
+      <div class="content match-content">
+        <div class="score-ring"><div><strong id="score">94%</strong><small>Match</small></div></div>
+        <p class="eyebrow">Your Perfect Genre</p>
+        <h2 class="genre-title" id="genre">Open-World<br>Action RPG</h2>
+        <p class="match-copy" id="matchCopy">Based on your preferences, you'll enjoy games that offer rich stories, exploration and action-packed gameplay.</p>
+
+        <div class="why-match">
+          <div class="why-head"><b>Why it matches you</b><span>✓</span></div>
+          <div class="why-points" id="whyPoints"></div>
+        </div>
+
+        <div class="recommend-head"><b id="recommendTitle">Top Game Recommendations</b><button id="resetQuiz">Change Preferences</button></div>
+        <div class="recommendations" id="recommendations"></div>
+      </div>
+    </section>
+
+    <!-- 5. DETAILS -->
+    <section class="screen" id="details">
+      <div class="detail-hero">
+        <img class="detail-bg" id="detailBg" alt="" hidden>
+        <div class="hero-shade"></div>
+        <button class="icon-btn hero-back" data-back aria-label="Back">‹</button>
+        <button class="heart-btn" id="heart" aria-label="Save game">♡</button>
+        <div class="detail-hero-title">
+          <div class="detail-poster" id="detailPoster">⚔️</div>
+          <strong id="detailHeroTitle">Elden Ring</strong>
+        </div>
+      </div>
+
+      <div class="content detail-content">
+        <div class="title-line">
+          <h2 id="detailTitle">Elden Ring</h2>
+          <span id="detailScore">94% Match</span>
+        </div>
+        <p class="sub" id="detailGenre">Open-World Action RPG</p>
+
+        <div class="facts">
+          <div><small>Platforms</small><b id="detailPlatforms">PC · PS · Xbox</b></div>
+          <div><small>Difficulty</small><b>● Medium</b></div>
+          <div><small>Length</small><b>◷ 40–60 hrs</b></div>
+        </div>
+
+        <h3>Playstyle</h3>
+        <div class="tags" id="detailTags"></div>
+
+        <div class="why-match detail-why">
+          <div class="why-head"><b>Why it matches you</b><span>✓</span></div>
+          <div class="why-points" id="detailWhyPoints"></div>
+        </div>
+
+        <h3>Why you'll like it</h3>
+        <p class="detail-text" id="detailText"></p>
+
+        <div class="action-row">
+          <button class="primary-btn" id="saveGame">♥ Save Game</button>
+          <button class="secondary-btn" id="tryAnother">↻ Try Another</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- MY GAMES / TASK 3 FEATURE -->
+    <section class="screen" id="library">
+      <header class="simple-header">
+        <button class="icon-btn" data-go="welcome" aria-label="Home">‹</button>
+        <strong>My Games</strong>
+        <button class="library-add" id="addMyGameTop">＋</button>
+      </header>
+      <div class="content library-content">
+        <div class="library-hero">
+          <p class="eyebrow">MY GAME LIBRARY</p><h2>Keep your games in one place.</h2>
+          <p class="sub">Add games you want to play and build your personal list.</p>
+        </div>
+        <div class="library-section-head"><div><h3>My Games</h3><span id="myGameCount">0 games</span></div><button class="primary-btn library-add-btn" id="addMyGame">＋ Add Game</button></div>
+        <div id="myGameEmpty" class="library-empty"><div class="library-empty-icon">🎮</div><h3>Your list is empty</h3><p>Add your first game to start building your personal library.</p><button class="primary-btn" id="addFirstMyGame">Add Your First Game</button></div>
+        <div id="myGameList" class="my-game-list" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="screen" id="addGame">
+      <header class="simple-header"><button class="icon-btn" id="backToLibrary" aria-label="Back">‹</button><strong>Add Game</strong><span></span></header>
+      <div class="content add-game-content">
+        <div class="library-hero"><p class="eyebrow">NEW GAME</p><h2>Add to My Games</h2><p class="sub">Required fields are marked with *.</p></div>
+        <form id="myGameForm" class="my-game-form" novalidate>
+          <label>Game name <span>*</span><input id="myGameName" maxlength="50" placeholder="e.g. Elden Ring" autocomplete="off"><small class="form-error" id="myGameNameError"></small></label>
+          <label>Platform <span>*</span><select id="myGamePlatform"><option value="">Select a platform</option><option>PC</option><option>PlayStation</option><option>Xbox</option><option>Mobile</option><option>Nintendo</option></select><small class="form-error" id="myGamePlatformError"></small></label>
+          <label>Genre <span>*</span><select id="myGameGenre"><option value="">Select a genre</option><option>Action</option><option>Story</option><option>Exploration</option><option>Strategy</option><option>Competitive</option><option>Horror</option><option>Racing</option><option>Relaxing</option></select><small class="form-error" id="myGameGenreError"></small></label>
+          <label>Session time<select id="myGameTime"><option>Short</option><option selected>Medium</option><option>Long</option></select></label>
+          <label>Notes <span class="optional-label">Optional</span><textarea id="myGameNotes" maxlength="120" rows="3" placeholder="Why do you want to play it?"></textarea><small class="char-count" id="myGameChar">0/120</small></label>
+          <div class="form-actions"><button type="button" class="secondary-btn" id="cancelMyGame">Cancel</button><button type="submit" class="primary-btn">Add Game</button></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- SAVED -->
+    <section class="screen" id="saved">
+      <header class="simple-header">
+        <button class="icon-btn" data-go="welcome" aria-label="Home">‹</button>
+        <strong>Saved Games</strong>
+        <span></span>
+      </header>
+      <div class="content saved-content">
+        <div class="filter-row">
+          <button class="filter active">All</button><button class="filter">RPG</button><button class="filter">Action</button><button class="filter">Adventure</button>
+        </div>
+        <div id="savedList"></div>
+      </div>
+      <nav class="bottom-nav">
+        <button data-go="welcome">⌂<small>Home</small></button>
+        <button data-go="match">⌕<small>Explore</small></button>
+        <button class="active">♥<small>Saved</small></button>
+        <button data-go="library">🎮<small>My Games</small></button>
+      </nav>
+    </section>
+
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
